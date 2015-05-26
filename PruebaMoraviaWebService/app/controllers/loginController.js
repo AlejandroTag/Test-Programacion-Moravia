@@ -8,11 +8,6 @@ app.controller('loginController', ['$scope', '$location', 'authService', '$route
         returnUrl: $routeParams.returnUrl
     };
 
-    if (authService.authentication.isAuth) {
-
-        $location.path('/home');
-    }
-
     $scope.errorLogin = false;
 
     $scope.submitted = false;
