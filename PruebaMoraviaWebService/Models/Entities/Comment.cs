@@ -20,6 +20,6 @@ namespace PruebaMoraviaWebService.Models.Entities
 
         public DateTime Fecha { get; set; }
 
-        public virtual UserModel Usuario { get; set; }
+        
     }
 }
