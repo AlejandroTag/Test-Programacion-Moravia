@@ -21,25 +21,17 @@ app.controller('homeController', ['$scope', '$http', 'GlobalUrlWebApi', 'authSer
                 commentDescription: message
             }
         
-        //$scope.comments.push(nuevo);
-        //$scope.$apply(); // this is outside of angularjs, so need to apply
-        
-        ShowComments();//pongo asi para que me muestre el tiempo que paso, porque eso se hace en el back-end.
+        ShowComments();
     };
-
-    $scope.mailTo = function () {
-
-        $window.location = "mailto:alejandrotaglioni@gmail.com";
-    }
 
     function ShowComments() {
 
         $http.get(GlobalUrlWebApi.serviceBase + '/api/Comments')
        
             .success(function (data, status) {
-                
-                $scope.comments = data; // show current complaints
-
+               
+                    $scope.comments = data;
+           
             })
             .error(function (data, status) {
                 $scope.comments = [];
@@ -96,7 +88,7 @@ app.controller('homeController', ['$scope', '$http', 'GlobalUrlWebApi', 'authSer
 
     function ClearForm() {
 
-        $scope.frmComment.$setPristine(); //here f1 our form name
+        $scope.frmComment.$setPristine();
         $scope.submitted = false;
     }
 

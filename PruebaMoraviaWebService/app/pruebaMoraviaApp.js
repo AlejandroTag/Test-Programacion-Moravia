@@ -75,8 +75,7 @@
                     return $http.pendingRequests.length > 0;
 
                 };
-                //Ve ($watch) si ($http.pendingRequests.length > 0) es true o false y en base a eso muestra u oculta el elemento (elm) que tiene la directiva 'loading'.
-
+               
                 scope.$watch(scope.isLoading, function (v) {
                     if (v) {
                         elm.show();
