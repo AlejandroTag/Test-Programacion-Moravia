@@ -7,6 +7,10 @@ app.controller('loginController', ['$scope', '$location', 'authService', '$route
         password: "",
         returnUrl: $routeParams.returnUrl
     };
+    
+    if (authService.authentication.isAuth) {
+        $location.path('/home');
+    }
 
     $scope.errorLogin = false;
 
