@@ -1,0 +1,117 @@
+<div class="container body-content">
+
+    <h2>Iniciar sesión.</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">
+
+                <form class="form-login" role="form" style="margin-top:70px" name="loginForm" novalidate>
+
+                    <hr>
+
+                    <div class="form-group row">
+
+                        <label class="col-md-2 control-label" for="Email">Correo electrónico</label>
+
+                        <div class="col-md-10">
+                           
+                            <div class="inner-addon left-addon">
+
+                                <i class="glyphicon glyphicon-user"></i>
+
+                                <input class="form-control" type="email" data-ng-model="loginData.userName" name="userName" placeholder="email" ng-keypress="errorLogin= false" required autofocus>
+
+                                <span class="error text-danger" ng-show="(loginForm.userName.$dirty || submitted) && loginForm.userName.$error.required">Ingresar email</span>
+
+                                <span class="error text-danger" ng-show="(loginForm.userName.$dirty || submitted) && loginForm.userName.$error.email">Ingresar un email válido</span>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+
+                        <label class="col-md-2 control-label" for="Password">Contraseña</label>
+
+                        <div class="col-md-10">
+
+                            <div class="inner-addon left-addon">
+
+                                <i class="glyphicon glyphicon-lock"></i>
+
+                                <input type="password" name="password" class="form-control" placeholder="Contraseña" data-ng-model="loginData.password" required>
+
+                            </div>
+
+                            <span class="error text-danger" ng-show="(loginForm.password.$dirty || submitted) && loginForm.password.$error.required">Ingresar contraseña</span>
+
+                            <div style="margin-top:20px">
+                                <span class="error text-danger" ng-show="errorLogin">El nombre de usuario o la contraseña son incorrectas.</span>
+                            </div>
+                           
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                <input data-val="true" data-val-required="The ¿Recordar cuenta? field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true">
+                                <input name="RememberMe" type="hidden" value="false">
+                                <label for="RememberMe">¿Recordar cuenta?</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Iniciar sesión" class="btn btn-default" data-ng-click="login()">
+                        </div>
+                    </div>
+                </form>
+
+            </section>
+
+        </div>
+
+
+    </div>
+
+    <style>
+        /* enable absolute positioning */
+        
+        .inner-addon {
+            position: relative;
+        }
+        /* style icon */
+        
+        .inner-addon .glyphicon {
+            position: absolute;
+            padding: 10px;
+            pointer-events: none;
+        }
+        /* align icon */
+        
+        .left-addon .glyphicon {
+            left: 0px;
+        }
+        
+        .right-addon .glyphicon {
+            right: 0px;
+        }
+        /* add padding  */
+        
+        .left-addon input {
+            padding-left: 30px;
+        }
+        
+        .right-addon input {
+            padding-right: 30px;
+        }
+    </style>
+
+
+    <hr>
+
+</div>

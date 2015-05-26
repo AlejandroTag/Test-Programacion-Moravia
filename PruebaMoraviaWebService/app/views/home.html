@@ -1,0 +1,42 @@
+
+
+<div style="margin-top:100px">
+
+    <div class="row">
+        <div class="col-md-6">
+            <form name="frmComment" ng-submit="postOne();" novalidate>
+
+                <div class="form-group">
+
+                    <textarea type="text" rows="3" name="comment" value="" class="form-control" placeholder="Ingresar texto..." ng-model="descToAdd" required></textarea>
+                    
+                    <span class="error text-danger" ng-show="(frmComment.comment.$dirty || submitted) && frmComment.comment.$error.required">Ingresar algún texto</span>
+
+                </div>
+
+                <input type="submit" name="name" value="Aceptar" class="btn btn-primary" />
+
+                <p ng-show="errorToAdd">{{errorToAdd}}</p>
+
+            </form>
+        </div>
+
+    </div class="row" >
+
+    <div class="row" ng-show="toShow()" style="margin-top:40px;">
+
+        <div class="panel panel-default" ng-repeat="item in comments" style="margin-top:20px">
+
+            <div class="panel-body">
+                <a style="cursor:pointer" ng-click="mailTo()"><span class="glyphicon glyphicon-user" style="margin-right:1%"></span>{{item.userName}}</a><br />
+                <p style="padding-left:20px; margin-top:15px">{{item.commentDescription}}</p><br />
+                <span style="float:right">{{item.timeAgo}}</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modalLoading" data-loading></div>

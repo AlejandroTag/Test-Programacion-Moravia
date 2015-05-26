@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Prueba Moravia</title>
+   
+    <link href="app/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="app/js/modernizr-2.6.2.js"></script>
+
+    <!-- Fuente -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+</head>
+<body ng-app="MoraviaApp" ng-cloak>
+    
+    <div class="navbar navbar-inverse navbar-fixed-top" data-ng-controller="navBarController">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="#" class="navbar-brand">Test Moravia</a>
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <li><a href="#">Inicio</a></li>
+
+                    <li><a href="#/docs">Documentación</a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav pull-right">
+
+                    <li data-ng-hide="authentication.isAuth"> <a href="#/login">Iniciar sesión</a></li>
+
+                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Cerrar Sesión</a></li>
+
+                    <li class="active" data-ng-hide="!authentication.isAuth">
+                        <a href="#">{{authentication.userName}}</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+
+        <div class="row">
+
+            <section ng-view></section>
+
+        </div>
+
+        <footer>
+            <!--<p>&copy; @DateTime.Now.Year</p>-->
+        </footer>
+    </div>
+
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .modalLoading {
+             display: none;
+             position: fixed;
+             z-index: 1000;
+             top: 0;
+             left: 0;
+             height: 100%;
+             width: 100%;
+             background: rgba( 255, 255, 255, .8 ) url(img/FhHRx.gif) 50% 50% no-repeat;
+         }
+
+         /* When the body has the loading class, we turn
+        the scrollbar off with overflow:hidden */
+         body.loading {
+             overflow: hidden;
+         }
+
+             /* Anytime the body has the loading class, our
+        modal element will be visible */
+             body.loading .modalLoading {
+                 display: block;
+             }
+
+    </style>
+
+    <!-- 3rd party libraries -->
+    
+    <script src="app/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+    <script src="app/js/angular-local-storage.min.js"></script>   
+    <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="signalr/hubs"></script>
+
+    <!-- Load app main script -->
+    <script src="app/pruebaMoraviaApp.js"></script>
+
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js"></script>
+    <script src="app/services/authService.js"></script>
+
+    <!-- Load controllers -->
+    <script src="app/controllers/navBarController.js"></script>
+    <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/controllers/docsController.js"></script>
+
+</body>
+</html>
