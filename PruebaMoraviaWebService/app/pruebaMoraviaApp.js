@@ -1,4 +1,4 @@
-﻿(function () { // Angular encourages module pattern, good!
+﻿(function () { 
     var app = angular.module('MoraviaApp', ['ngRoute', 'LocalStorageModule']),
         uri = 'api/Comments',
         errorMessage = function (data, status) {
